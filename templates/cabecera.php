@@ -1,5 +1,5 @@
 <?php
-    require dirname(__FILE__) . "/../config/config.php";
+    require_once dirname(__FILE__) . "/../config/config.php";
 ?>
 <!doctype html>
 <html lang="en">
@@ -43,6 +43,9 @@
             </a>
             <a class="navbar-toggler" href="login.php" >
                 <span>Login</span>
+            </a>
+            <a class="navbar-toggler" href="logout.php" >
+                <span>Logout</span>
             </a>
         </div>
     </div>

@@ -20,7 +20,7 @@ function loadWhoops()
  */
 function mitjana(Array $numeros):Float
 {
-
+    return array_sum($numeros)/count($numeros);
 }
 
 /**
@@ -31,7 +31,16 @@ function mitjana(Array $numeros):Float
  */
 function triaParaules(Array $diccionari,$quantitat):Array
 {
-
+    $keys = array_keys($diccionari);
+    $quants = count($diccionari);
+    $inici = rand(0,$quants-1);
+    $salt = rand(1,$quants-1);
+    $resultat = array();
+    for ($i=0;$i<$quantitat;$i++){
+        $element = ($inici + ($i * $salt)) % $quants;
+        $resultat[$keys[$element]] = $diccionari[$keys[$element]];
+    }
+    return $resultat;
 }
 
 /**
@@ -44,5 +53,29 @@ function triaParaules(Array $diccionari,$quantitat):Array
  */
 function login(Array $usuarisValids,$user,$password):bool
 {
+    return (isset($usuarisValids[$user])) && ($usuarisValids[$user] === $password);
+}
 
+
+function showError($arrayErrors,$field){
+    if (array_key_exists($field,$arrayErrors)) {
+        return "<div id='nameFeedback' class='invalid-feedback'>".$arrayErrors[$field]."</div>";
+    }
+    return "";
+}
+
+function classError($arrayErrors,$field){
+    return array_key_exists($field,$arrayErrors)?'is-invalid':'is-valid';
+}
+
+function preguntaActual($array){
+    foreach ($array as $key => $item){
+        if (!$item) return $key;
+    }
+}
+function finJuego($array){
+    foreach ($array as $key => $item){
+        if (!$item) return false;
+    }
+    return true;
 }
