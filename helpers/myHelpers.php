@@ -13,22 +13,21 @@ function loadWhoops()
     return $whoops;
 }
 
-/**
- * @param array $numeros
- * @return Float
- * Calcula la mitjana d'un array de numeros
- */
+function getTestConnection(){
+    try{
+        return new PDO("mysql:host=mysql;dbname=testJocs",'root','root');
+    }catch(PDOException $exception){
+        echo "Connection error: " . $exception->getMessage();
+        return null;
+    }
+}
+
 function mitjana(Array $numeros):Float
 {
     return array_sum($numeros)/count($numeros);
 }
 
-/**
- * @param array $diccionari
- * @param $quantitat
- * @return array
- * Torna un array de quantitat elements triats a l'atzar
- */
+
 function triaParaules(Array $diccionari,$quantitat):Array
 {
 
@@ -38,19 +37,6 @@ function triaParaules(Array $diccionari,$quantitat):Array
         $aleatorio[$key] = $diccionari[$key];
     }
     return $aleatorio;
-}
-
-/**
- * @param array $usuarisValids
- * @param $user
- * @param $password
- * @return bool
- * Torna true si el usuari i el password es troben a usuarisValids
- * Torna false en cas contrari
- */
-function login(Array $usuarisValids,$user,$password):bool
-{
-    return (isset($usuarisValids[$user])) && ($usuarisValids[$user] === $password);
 }
 
 
@@ -76,5 +62,66 @@ function finJuego($array){
     foreach ($array as $key => $item){
         if (!$item) return false;
     }
+    return true;
+}
+
+
+/**
+ * @param String $user
+ * @param String $password
+ * @return bool
+ * Torna true si el usuari i el password es troben a la BD
+ * Torna false en cas contrari
+ */
+function login(String $user,String $password):bool
+{
+    return true;
+}
+
+/**
+ * @param String $user
+ * @param String $pass1
+ * @param String $pass2
+ * @return bool
+ * Torne true si l'usuari s'ha registrat
+ * Torna false en cas contrari
+ */
+function register(String $user,String $pass1,String $pass2):bool
+{
+    return true;
+}
+
+/**
+ * @param String $valencia
+ * @param String $angles
+ * @return bool
+ * Torna true si la paraula ha sigut afegida al diccionari
+ * Torna false en cas contrari
+ */
+function addWord(String $valencia,String $angles):bool
+{
+    return true;
+}
+
+
+/**
+ * @param String $valencia
+ * @return mixed
+ * Retorna la paraula en angles
+ * Si no existeis torna false
+ */
+function getWord(String $valencia)
+{
+    return true;
+}
+
+/**
+ * @param String $valencia
+ * @param String $angles
+ * @return bool
+ * Retorna true si s'ha pogut esborrar i false si no
+ */
+function delWord(String $valencia,String $angles):bool
+{
     return true;
 }

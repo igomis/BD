@@ -33,32 +33,22 @@
     > sh test.sh 
     
     
-  Practica 2
+  Practica 3
   
   * Partint del repositori actual es preten:
     
-  * La pàgina **index.php** té tres formularis
-    
-    * El primer que **calcula la mitjana** de una sèrie de numeros ( cal comprovar que siguen numeros) introduïts per teclat i on, a priori, 
-        el programa no sap quants números s'introduiran. L'usuari indicarà que ha acabat quan pose un número negatiu. Hi haurà un botó per tornar a començar.
-    
-    * El segon ha de mostrar una a una, 5 paraules a l'atzar d'un minidiccionari anglès-valencià, inclós a config/diccionari.php. 
-    El programa demanarà que l'usuari tecleje la traducció a l'anglès de cada una de les paraules i comprovarà si són correctes. 
-    Al final el programa haurà de mostrar cuantes respostes són vàlides i quantes errònees. Hi haurà un botó per tornar a començar.
+  * Continuar amb els mateixos jocs anteriors, però ara les dades del diccionari i la dels usuaris estaran en una base de dades
+  
+    * La funcionalitat ha de ser la mateixa, excepte que les paraules que guardem al diccionari, quedaran ja per sempre.
+    * El nom de la base de dades serà **jocs** i la estructura de les taules es suministra amb el repositori. Entreu al phpmyadmin.my amb usuari root i contrasenya root.
+    * Es crearà una pàgina de registre per tal que els usuaris es donen d'alta. La contrasenya es guardarà xifrada amb l'algorisme
+     sha256. Hi hi un usuari igomis amb contrasenya 1234, que es suministra per provar l'aplicatiu.
+    * Per al registre s'haurà de demanar dues vegades la contrasenya.
+    * També hi ha paraules d'exemple però la idea és que l'usuari vaja omplint el diccionari.
+    * S'haura de comprovar que l'usuari no estiga intentant ficar brossa a la BD.
+    * El boto reset diccionari el que farà serà esborrar la paraula si les dos estan bé. En cas contrari mostrarà un missatge d'error.
+    * Per a executar els test, ara cla tindre la màquina en funcionament. En cas contrari no funcionarà.
      
-    * El tercer és per afegir paraules al diccionari, mentres la sessió siga vàlida. Hi haurà un botó per esborrar les noves paraules.                            
- 
-    * Per a poder jugar l'usuari ha d'estar loguejat (en cas contrari, quan es polse en algun formulari, es durà a la pàgina de login.php).
-    
-    * Quan l'usuari està loguejat es mostra el seu nom a la capçalera, amb un botó de logout
-  
-  * La pàgina **login.php** serà un formulari amb usuari i contrasenya. Els usuaris vàlids estàn al fitxer
-  config/usuaris.php. Si l'usuari és vàlid redirigirà a la pàgina index.php. En cas contrari mostrarà missatge d'error
-  i mantenint el nom de l'usuari, tornarà a intentar. Després de 3 intents fallits esborrarà el nom de l'usuari del formulari.
-  
-  * La pàgina de logout buidarà les variables de sessió i redigirirà a index.php
-  
-  * Es demanen, al meyns tres funcions que estan tipificades al fitxer myHelpers.php
-  
+  * Caldrà passar els test de les funcions que estan buides a myHelpers.php  
     
    
