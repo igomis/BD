@@ -46,7 +46,9 @@
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" ><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>
-                <text x="50%" y="50%" fill="#eceeef" dy=".3em"><?php echo !isset($_SESSION['juego2']['preguntas'])?'Polse reset per iniciar':$bien?"Has encertat $bien":'No has acabat' ?></text>
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em"><?php if (!isset($juego2['preguntas'])) {
+                    echo 'Polse reset per iniciar';} else echo isset($bien)?"Has encertat $bien":'No has acabat' ?></text>
+                }
             </svg>
             <div class="card-body">
                 <p class="card-text"><b>Traducció</b>. Com es diuen en valencià les següents paraules.</p>
@@ -54,8 +56,8 @@
               <div class="d-flex justify-content-between align-items-center">
                   <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" >
                   <div class="form-group">
-                      <label for="question"><?php echo isset($_SESSION['juego2']['preguntas'])?preguntaActual($_SESSION['juego2']['respuestas']):'' ?></label>
-                      <input type="hidden" name="pregunta" value="<?= preguntaActual($_SESSION['juego2']['respuestas'])?>" />
+                      <label for="question"><?php echo isset($juego2['preguntas'])?preguntaActual($juego2['respuestas']):'' ?></label>
+                      <input type="hidden" name="pregunta" value="<?= preguntaActual($juego2['respuestas'])?>" />
                       <input type="text" class="form-control" id="question" name="question">
                   </div>
                 <div class="btn-group">

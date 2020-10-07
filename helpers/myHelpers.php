@@ -31,16 +31,13 @@ function mitjana(Array $numeros):Float
  */
 function triaParaules(Array $diccionari,$quantitat):Array
 {
-    $keys = array_keys($diccionari);
-    $quants = count($diccionari);
-    $inici = rand(0,$quants-1);
-    $salt = rand(1,$quants-1);
-    $resultat = array();
-    for ($i=0;$i<$quantitat;$i++){
-        $element = ($inici + ($i * $salt)) % $quants;
-        $resultat[$keys[$element]] = $diccionari[$keys[$element]];
+
+    $keys =  array_rand($diccionari,$quantitat);
+
+    foreach ($keys as $key){
+        $aleatorio[$key] = $diccionari[$key];
     }
-    return $resultat;
+    return $aleatorio;
 }
 
 /**
@@ -69,8 +66,10 @@ function classError($arrayErrors,$field){
 }
 
 function preguntaActual($array){
-    foreach ($array as $key => $item){
-        if (!$item) return $key;
+    if ($array) {
+        foreach ($array as $key => $item) {
+            if (!$item) return $key;
+        }
     }
 }
 function finJuego($array){

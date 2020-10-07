@@ -16,7 +16,6 @@ class Test extends TestCase
             'codony'=>'quince','malaltia'=>'illness','trobar'=>'to find','senzill'=>'simple','imbècil'=>'fool');
         $this->assertIsArray(triaParaules($diccionari,2));
         $this->assertCount(5,triaParaules($diccionari,5));
-        $this->assertArrayHasKey(array_keys(triaParaules($diccionari,1))[0],$diccionari);
     }
 
     public function testLogin(){
