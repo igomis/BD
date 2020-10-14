@@ -47,7 +47,7 @@
     * També hi ha paraules d'exemple però la idea és que l'usuari vaja omplint el diccionari.
     * S'haura de comprovar que l'usuari no estiga intentant ficar brossa a la BD.
     * El boto reset diccionari el que farà serà esborrar la paraula si les dos estan bé. En cas contrari mostrarà un missatge d'error.
-    * Per a executar els test, ara cla tindre la màquina en funcionament. En cas contrari no funcionarà.
+    * Per a executar els test, ara cal tindre la màquina en funcionament. En cas contrari no funcionarà.
      
   * Caldrà passar els test de les funcions que estan buides a myHelpers.php  
     
